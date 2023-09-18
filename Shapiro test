@@ -1,0 +1,12 @@
+import io
+import pandas as pd
+from scipy.stats import shapiro
+ 
+
+original = pd.read_csv(io.BytesIO(uploaded['original.csv']))  
+ new = pd.read_csv(io.BytesIO(uploaded['new_version_perf.csv']))
+ 
+#perform Shapiro-Wilk test
+print("Shapiro-Wilk test for Original version:",shapiro(original['TOTAL_CPU'])) 
+print("Shapiro-Wilk test for New version:", shapiro(new['TOTAL_CPU']))
+ 
